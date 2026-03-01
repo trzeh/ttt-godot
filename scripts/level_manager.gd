@@ -86,7 +86,9 @@ func _launch_event_script(event_script: Script) -> void:
 func _on_event_completed(result: Dictionary, wrapper: Control) -> void:
 	print("Event zakończony: ", result)
 	
-	if result.get("accepted") == false:
+	var accepted = result.get("accepted", false)
+	
+	if not accepted:
 		var level_penalty = 3 * current_level
 		Global.player_hp = max(Global.player_hp - level_penalty, 0)
 	
@@ -94,6 +96,8 @@ func _on_event_completed(result: Dictionary, wrapper: Control) -> void:
 	PlayerBanner.update_banner()
 	if total_damage > 0:
 		PlayerBanner.show_damage(total_damage)
+	
+	_flash_screen(Color(0.1, 0.9, 0.2, 0.35) if accepted else Color(0.9, 0.1, 0.1, 0.35))
 	var screen_size = get_viewport().get_visible_rect().size
 	wrapper.pivot_offset = screen_size / 2.0
 
@@ -120,3 +124,17 @@ func _trigger_game_over() -> void:
 	var game_over = CanvasLayer.new()
 	game_over.set_script(game_over_script)
 	get_tree().current_scene.add_child(game_over)
+
+
+func _flash_screen(color: Color) -> void:
+	var flash = ColorRect.new()
+	flash.color = color
+	flash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	get_tree().current_scene.add_child(flash)
+	
+	flash.modulate = Color(1, 1, 1, 0)
+	var tween = get_tree().current_scene.create_tween()
+	tween.tween_property(flash, "modulate:a", 1.0, 0.12)
+	tween.tween_property(flash, "modulate:a", 0.0, 0.4)
+	tween.tween_callback(flash.queue_free)

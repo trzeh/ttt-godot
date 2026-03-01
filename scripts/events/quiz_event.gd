@@ -28,6 +28,46 @@ const QUESTIONS = [
 		"answers": ["7", "8", "9", "6"],
 		"correct": 2
 	},
+	{
+		"question": "W Australii jest więcej...\nniż ludzi?",
+		"answers": ["Kangurów", "Koali", "Krokodyli", "Papug"],
+		"correct": 0
+	},
+	{
+		"question": "W którym kraju jest\nnajwięcej saun na świecie?",
+		"answers": ["Szwecja", "Norwegia", "Finlandia", "Japonia"],
+		"correct": 2
+	},
+	{
+		"question": "Miód nigdy się nie psuje.\nZnaleziono jadalny miód w:",
+		"answers": ["Pompejach", "Grobowcach Egiptu", "Jaskini w Chinach", "Na Antarktydzie"],
+		"correct": 1
+	},
+	{
+		"question": "Co jest starsze:\nOxford czy Aztekowie?",
+		"answers": ["Aztekowie", "Oxford", "Powstali razem", "Żadne"],
+		"correct": 1
+	},
+	{
+		"question": "Banany są technicznie...",
+		"answers": ["Warzywem", "Jagodą", "Orzechem", "Grzybem"],
+		"correct": 1
+	},
+	{
+		"question": "Ile serc ma ośmiornica?",
+		"answers": ["1", "2", "3", "8"],
+		"correct": 2
+	},
+	{
+		"question": "Który kraj ma najwięcej\nczekoladziarni na km²?",
+		"answers": ["Belgia", "Szwajcaria", "Francja", "Niemcy"],
+		"correct": 1
+	},
+	{
+		"question": "Kleopatra żyła bliżej\nczasowo do...",
+		"answers": ["Budowy piramid", "Lądowania na Księżycu", "Juliusza Cezara", "Aleksandra W."],
+		"correct": 1
+	},
 ]
 
 var _completed: bool = false

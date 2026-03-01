@@ -181,7 +181,7 @@ func _hide_mole_and_next() -> void:
 
 
 func _on_main_timeout() -> void:
-	_finish({"accepted": _score > 0, "score": _score, "hp_lost": _hp_lost})
+	_finish({"accepted": _score >= MAX_HITS, "score": _score, "hp_lost": _hp_lost})
 
 
 func _finish(result: Dictionary) -> void:
