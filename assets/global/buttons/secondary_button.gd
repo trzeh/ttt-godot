@@ -23,5 +23,10 @@ func _pressed():
 		# 4. Animujemy powiększenie CAŁEJ SCENY do normalnego rozmiaru
 		tween.tween_property(popup, "scale", Vector2.ONE, 0.4)
 		
+		# 5. Jeśli popup emituje profile_ready (np. demoMenu), podłącz do animacji głównej sceny
+		if popup.has_signal("profile_ready"):
+			var main_node = get_tree().current_scene
+			if main_node.has_method("_start_exit_animation"):
+				popup.profile_ready.connect(main_node._start_exit_animation)
 	else:
 		print("Błąd: Nie przeciągnięto sceny popupu do Inspektora!")

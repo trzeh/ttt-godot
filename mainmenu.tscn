@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="10_qrn07"]
 [ext_resource type="Script" uid="uid://bgoxj5nngmdiq" path="res://assets/global/buttons/secondary_button.gd" id="13_raimv"]
 [ext_resource type="PackedScene" uid="uid://dupngulsot4ci" path="res://demoMenu.tscn" id="14_qy7ti"]
+[ext_resource type="Script" uid="uid://ddc7nsgt63o2d" path="res://control.gd" id="15_y5i8j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uvds"]
 atlas = ExtResource("2_igs2m")
@@ -231,8 +232,17 @@ outline_size = 37
 outline_color = Color(0, 0, 0, 1)
 
 [node name="mainmenu" type="Node2D" unique_id=1027799367]
+script = ExtResource("15_y5i8j")
+
+[node name="demoControl" type="Control" parent="." unique_id=415428588]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="background" type="TextureRect" parent="." unique_id=1721359446]
+unique_name_in_owner = true
 offset_right = 1928.0
 offset_bottom = 1081.0
 texture = ExtResource("1_wgsso")
@@ -241,6 +251,7 @@ stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="sun" type="AnimatedSprite2D" parent="." unique_id=883298624]
+unique_name_in_owner = true
 position = Vector2(38, 32)
 scale = Vector2(2.4557292, 2.4557292)
 sprite_frames = SubResource("SpriteFrames_usdlt")
@@ -248,6 +259,7 @@ autoplay = "default"
 frame_progress = 0.17515254
 
 [node name="elevator" type="TextureRect" parent="." unique_id=1853058788]
+unique_name_in_owner = true
 offset_left = 38.0
 offset_top = 384.0
 offset_right = 511.0
@@ -258,6 +270,7 @@ stretch_mode = 4
 script = ExtResource("8_0y70q")
 
 [node name="doorsLeft" type="TextureRect" parent="elevator" unique_id=1298521898]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 429.0
 offset_top = 67.0
@@ -269,6 +282,7 @@ stretch_mode = 4
 script = ExtResource("6_qrn07")
 
 [node name="doorsRight" type="TextureRect" parent="elevator" unique_id=521734285]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 450.0
 offset_top = 85.0
@@ -279,6 +293,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="blur" type="ColorRect" parent="." unique_id=754370497]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_u77v1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -290,6 +305,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="." unique_id=303869657]
+unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -304,7 +320,8 @@ label_settings = SubResource("LabelSettings_lqdfc")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="." unique_id=2120837373]
+[node name="createControl" type="Control" parent="." unique_id=2120837373]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 530.0
@@ -312,13 +329,15 @@ offset_top = 548.0
 offset_right = 570.0
 offset_bottom = 588.0
 
-[node name="createButton" parent="Control" unique_id=715215365 instance=ExtResource("5_7uvds")]
+[node name="createButton" parent="createControl" unique_id=715215365 instance=ExtResource("5_7uvds")]
+unique_name_in_owner = true
 layout_mode = 0
 text = "STWÓRZ SERWER"
 script = ExtResource("6_qrn07")
 popup_scene = ExtResource("7_lidg2")
 
-[node name="Control2" type="Control" parent="." unique_id=1527950698]
+[node name="joinControl" type="Control" parent="." unique_id=1527950698]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 531.0
@@ -326,7 +345,8 @@ offset_top = 792.0
 offset_right = 571.0
 offset_bottom = 832.0
 
-[node name="secondaryButton" parent="Control2" unique_id=1394766160 instance=ExtResource("6_at6rn")]
+[node name="secondaryButton" parent="joinControl" unique_id=1394766160 instance=ExtResource("6_at6rn")]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -484.0
 offset_top = -8.0
@@ -335,7 +355,7 @@ offset_bottom = 178.0
 text = "DOŁĄCZ PRZEZ KOD"
 script = ExtResource("13_raimv")
 
-[node name="secondaryButton" parent="Control2/secondaryButton" unique_id=324494626 instance=ExtResource("6_at6rn")]
+[node name="secondaryButton" parent="joinControl/secondaryButton" unique_id=324494626 instance=ExtResource("6_at6rn")]
 layout_mode = 0
 offset_left = 1012.0
 offset_right = 1858.0
@@ -343,6 +363,6 @@ text = "DEMO"
 script = ExtResource("13_raimv")
 popup_scene = ExtResource("14_qy7ti")
 
-[connection signal="pressed" from="Control/createButton" to="Control/createButton" method="_on_pressed"]
-[connection signal="pressed" from="Control2/secondaryButton" to="Control2/secondaryButton" method="_on_pressed"]
-[connection signal="pressed" from="Control2/secondaryButton/secondaryButton" to="Control2/secondaryButton/secondaryButton" method="_on_pressed"]
+[connection signal="pressed" from="createControl/createButton" to="createControl/createButton" method="_on_pressed"]
+[connection signal="pressed" from="joinControl/secondaryButton" to="joinControl/secondaryButton" method="_on_pressed"]
+[connection signal="pressed" from="joinControl/secondaryButton/secondaryButton" to="joinControl/secondaryButton/secondaryButton" method="_on_pressed"]
