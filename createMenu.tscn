@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://56n7brehp1n3"]
+
+[ext_resource type="Texture2D" uid="uid://btopdndf1d7nt" path="res://assets/serverGui/background.svg" id="1_38wq8"]
+[ext_resource type="PackedScene" uid="uid://coutnr2s7qv2t" path="res://assets/text.tscn" id="2_dcfwt"]
+[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/global/Bungee-Regular.ttf" id="3_l0sga"]
+[ext_resource type="Texture2D" uid="uid://7lh4yi6pacl2" path="res://assets/global/textInput.svg" id="4_8fcph"]
+[ext_resource type="Texture2D" uid="uid://dusabdtubyhic" path="res://assets/serverGui/paintArea.svg" id="5_heu7n"]
+[ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://canvas.gd" id="6_srsgm"]
+[ext_resource type="PackedScene" uid="uid://d0chuo04mwkdm" path="res://assets/global/buttons/secondaryButton.tscn" id="7_xm4uf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13eri"]
+texture = ExtResource("4_8fcph")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24tx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3020"]
+
+[node name="Control" type="Control" unique_id=721540536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="." unique_id=1516107011]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -864.0
+offset_top = -486.0
+offset_right = 864.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_38wq8")
+
+[node name="nickLabel" parent="." unique_id=1724868936 instance=ExtResource("2_dcfwt")]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 136.0
+offset_right = 714.0
+offset_bottom = 232.0
+text = "TWÓJ NICK"
+
+[node name="nickInput" type="LineEdit" parent="." unique_id=1196962607]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 240.0
+offset_right = 821.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_l0sga")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxTexture_13eri")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_24tx7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f3020")
+alignment = 1
+max_length = 12
+
+[node name="avatarLabel" parent="." unique_id=1974527455 instance=ExtResource("2_dcfwt")]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 128.0
+offset_right = 1759.0
+offset_bottom = 264.0
+text = "NARYSUJ SWÓJ AWATAR"
+
+[node name="avatarArea" type="TextureRect" parent="." unique_id=1372328384]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 240.0
+offset_right = 1767.0
+offset_bottom = 987.0
+texture = ExtResource("5_heu7n")
+
+[node name="canvas" type="Control" parent="avatarArea" unique_id=564674028]
+anchors_preset = 0
+offset_right = 915.0
+offset_bottom = 732.0
+script = ExtResource("6_srsgm")
+
+[node name="nextButton" parent="." unique_id=1394766160 instance=ExtResource("7_xm4uf")]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 765.0
+offset_right = 717.0
+offset_bottom = 933.0
+text = "DALEJ"

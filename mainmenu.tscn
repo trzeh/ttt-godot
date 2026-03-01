@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="5_7uvds"]
 [ext_resource type="PackedScene" uid="uid://d0chuo04mwkdm" path="res://assets/global/buttons/secondaryButton.tscn" id="6_at6rn"]
 [ext_resource type="Script" uid="uid://ohe3crgl6kwx" path="res://on_button_pressed.gd" id="6_qrn07"]
-[ext_resource type="PackedScene" uid="uid://cadjf4i0lylk" path="res://joinMenu.tscn" id="7_lidg2"]
+[ext_resource type="PackedScene" uid="uid://56n7brehp1n3" path="res://createMenu.tscn" id="7_lidg2"]
 [ext_resource type="Texture2D" uid="uid://cp10ay4oy1vxw" path="res://assets/global/elevator/Elevator.svg" id="7_rqglp"]
 [ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://elevatorDoors.gd" id="8_0y70q"]
 [ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="9_0y70q"]
@@ -245,8 +245,38 @@ sprite_frames = SubResource("SpriteFrames_usdlt")
 autoplay = "default"
 frame_progress = 0.17515254
 
+[node name="elevator" type="TextureRect" parent="." unique_id=1853058788]
+offset_left = 38.0
+offset_top = 384.0
+offset_right = 511.0
+offset_bottom = 1037.0
+texture = ExtResource("7_rqglp")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("8_0y70q")
+
+[node name="doorsLeft" type="TextureRect" parent="elevator" unique_id=1298521898]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 67.0
+offset_right = 454.0
+offset_bottom = 639.0
+texture = ExtResource("9_0y70q")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("6_qrn07")
+
+[node name="doorsRight" type="TextureRect" parent="elevator" unique_id=521734285]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 85.0
+offset_right = 475.0
+offset_bottom = 619.0
+texture = ExtResource("10_qrn07")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="blur" type="ColorRect" parent="." unique_id=754370497]
-visible = false
 material = SubResource("ShaderMaterial_u77v1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,7 +314,7 @@ offset_bottom = 588.0
 layout_mode = 0
 text = "STWÓRZ SERWER"
 script = ExtResource("6_qrn07")
-next_scene = ExtResource("7_lidg2")
+popup_scene = ExtResource("7_lidg2")
 
 [node name="secondaryButton" parent="." unique_id=1394766160 instance=ExtResource("6_at6rn")]
 offset_left = 531.0
@@ -292,36 +322,5 @@ offset_top = 792.0
 offset_right = 1377.0
 offset_bottom = 978.0
 text = "DOŁĄCZ PRZEZ KOD"
-
-[node name="elevator" type="TextureRect" parent="." unique_id=1853058788]
-offset_left = 38.0
-offset_top = 384.0
-offset_right = 511.0
-offset_bottom = 1037.0
-texture = ExtResource("7_rqglp")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("8_0y70q")
-
-[node name="doorsLeft" type="TextureRect" parent="elevator" unique_id=1298521898]
-layout_mode = 0
-offset_left = 429.0
-offset_top = 67.0
-offset_right = 454.0
-offset_bottom = 639.0
-texture = ExtResource("9_0y70q")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("6_qrn07")
-
-[node name="doorsRight" type="TextureRect" parent="elevator" unique_id=521734285]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 85.0
-offset_right = 475.0
-offset_bottom = 619.0
-texture = ExtResource("10_qrn07")
-expand_mode = 1
-stretch_mode = 4
 
 [connection signal="pressed" from="Control/createButton" to="Control/createButton" method="_on_pressed"]

@@ -30,35 +30,27 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="background" type="TextureRect" parent="." unique_id=1935292978]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -864.0
-offset_top = -486.0
-offset_right = 864.0
-offset_bottom = 486.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_jpnm2")
-metadata/_edit_use_anchors_ = true
-
-[node name="nickLabel" parent="." unique_id=1724868936 instance=ExtResource("2_gpwap")]
 layout_mode = 0
-offset_left = 291.0
-offset_top = 136.0
-offset_right = 714.0
-offset_bottom = 232.0
+offset_right = 1728.0
+offset_bottom = 972.00037
+pivot_offset = Vector2(48, 27)
+pivot_offset_ratio = Vector2(48, 27)
+texture = ExtResource("1_jpnm2")
+
+[node name="nickLabel" parent="background" unique_id=1724868936 instance=ExtResource("2_gpwap")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 82.0
+offset_right = 618.0
+offset_bottom = 178.0
 text = "TWÓJ NICK"
 
-[node name="nickInput" type="LineEdit" parent="." unique_id=858104931]
+[node name="nickInput" type="LineEdit" parent="background" unique_id=858104931]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 240.0
-offset_right = 821.0
-offset_bottom = 391.0
+offset_left = 72.0
+offset_top = 186.0
+offset_right = 725.0
+offset_bottom = 337.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_f1pfl")
@@ -69,28 +61,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_v7bpt")
 alignment = 1
 max_length = 12
 
-[node name="avatarLabel" parent="." unique_id=290024028 instance=ExtResource("2_gpwap")]
+[node name="avatarLabel" parent="background" unique_id=290024028 instance=ExtResource("2_gpwap")]
 layout_mode = 0
-offset_left = 847.0
-offset_top = 128.0
-offset_right = 1759.0
-offset_bottom = 264.0
+offset_left = 751.0
+offset_top = 74.0
+offset_right = 1663.0
+offset_bottom = 210.0
 text = "NARYSUJ SWÓJ AWATAR"
 
-[node name="codeLabel" parent="." unique_id=404486753 instance=ExtResource("2_gpwap")]
+[node name="codeLabel" parent="background" unique_id=404486753 instance=ExtResource("2_gpwap")]
 layout_mode = 0
-offset_left = 227.0
-offset_top = 478.0
-offset_right = 784.0
-offset_bottom = 574.0
+offset_left = 131.0
+offset_top = 424.0
+offset_right = 688.0
+offset_bottom = 520.0
 text = "KOD DO LOBBY"
 
-[node name="codeInput" type="LineEdit" parent="." unique_id=1031118822]
+[node name="codeInput" type="LineEdit" parent="background" unique_id=1031118822]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 582.0
-offset_right = 821.0
-offset_bottom = 733.0
+offset_left = 72.0
+offset_top = 528.0
+offset_right = 725.0
+offset_bottom = 679.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_f1pfl")
@@ -101,24 +93,32 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_gpwap")
 alignment = 1
 max_length = 6
 
-[node name="joinButton" parent="." unique_id=715215365 instance=ExtResource("6_0gc2f")]
+[node name="joinButton" parent="background" unique_id=715215365 instance=ExtResource("6_0gc2f")]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 711.0
+offset_right = 621.0
+offset_bottom = 879.0
+text = "DOŁĄCZ"
+
+[node name="avatarArea" type="TextureRect" parent="background" unique_id=318685123]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 186.0
+offset_right = 1671.0
+offset_bottom = 933.0
+texture = ExtResource("5_dpgdt")
+
+[node name="canvas" type="Control" parent="background/avatarArea" unique_id=1037033401]
+anchors_preset = 0
+offset_right = 915.0
+offset_bottom = 732.0
+script = ExtResource("6_gpwap")
+
+[node name="joinButton2" parent="background" unique_id=247933542 instance=ExtResource("6_0gc2f")]
 layout_mode = 0
 offset_left = 263.0
 offset_top = 765.0
 offset_right = 717.0
 offset_bottom = 933.0
 text = "DOŁĄCZ"
-
-[node name="avatarArea" type="TextureRect" parent="." unique_id=318685123]
-layout_mode = 0
-offset_left = 847.0
-offset_top = 240.0
-offset_right = 1767.0
-offset_bottom = 987.0
-texture = ExtResource("5_dpgdt")
-
-[node name="canvas" type="Control" parent="avatarArea" unique_id=1037033401]
-anchors_preset = 0
-offset_right = 915.0
-offset_bottom = 732.0
-script = ExtResource("6_gpwap")
