@@ -2,7 +2,7 @@ name: "release to itch.io"
 on: push
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.6.1
   EXPORT_NAME: ttt
   PROJECT_PATH: .
   ITCH_USERNAME: trzeh
