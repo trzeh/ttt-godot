@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dusabdtubyhic" path="res://assets/serverGui/paintArea.svg" id="5_dpgdt"]
 [ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="6_0gc2f"]
 [ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://canvas.gd" id="6_gpwap"]
+[ext_resource type="Texture2D" uid="uid://d0p1fxn0je1jx" path="res://backButton.svg" id="8_f1pfl"]
+[ext_resource type="Script" uid="uid://shyodb3xkkcp" path="res://texture_button.gd" id="9_v7bpt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myajv"]
 texture = ExtResource("4_v7bpt")
@@ -22,6 +24,9 @@ texture_margin_bottom = 15.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpnm2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpwap"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dpgdt"]
+load_path = "res://.godot/imported/backButton.svg-8dafd0e58f171258929d6b2aadf75932.ctex"
 
 [node name="Control" type="Control" unique_id=896647217]
 layout_mode = 3
@@ -116,3 +121,16 @@ anchors_preset = 0
 offset_right = 915.0
 offset_bottom = 732.0
 script = ExtResource("6_gpwap")
+
+[node name="TextureButton" type="TextureButton" parent="background" unique_id=1859006576]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -51.0
+offset_right = 122.0
+offset_bottom = 135.0
+texture_normal = SubResource("CompressedTexture2D_dpgdt")
+texture_pressed = ExtResource("8_f1pfl")
+texture_hover = ExtResource("8_f1pfl")
+script = ExtResource("9_v7bpt")
+
+[connection signal="pressed" from="background/TextureButton" to="background/TextureButton" method="_on_pressed"]
