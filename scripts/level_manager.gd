@@ -12,6 +12,7 @@ func _ready() -> void:
 	register_event("res://scripts/events/example_event.gd")
 	register_event("res://scripts/events/quiz_event.gd")
 	register_event("res://scripts/events/mash_event.gd")
+	register_event("res://scripts/events/mole_event.gd")
 
 
 func register_event(script_path: String) -> void:
