@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://elevatorDoors.gd" id="8_0y70q"]
 [ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="9_0y70q"]
 [ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="10_qrn07"]
+[ext_resource type="Script" uid="uid://bgoxj5nngmdiq" path="res://assets/global/buttons/secondary_button.gd" id="13_raimv"]
+[ext_resource type="PackedScene" uid="uid://cadjf4i0lylk" path="res://joinMenu.tscn" id="14_qy7ti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uvds"]
 atlas = ExtResource("2_igs2m")
@@ -316,11 +318,20 @@ text = "STWÓRZ SERWER"
 script = ExtResource("6_qrn07")
 popup_scene = ExtResource("7_lidg2")
 
-[node name="secondaryButton" parent="." unique_id=1394766160 instance=ExtResource("6_at6rn")]
+[node name="Control2" type="Control" parent="." unique_id=1527950698]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 531.0
 offset_top = 792.0
-offset_right = 1377.0
-offset_bottom = 978.0
+offset_right = 571.0
+offset_bottom = 832.0
+
+[node name="secondaryButton" parent="Control2" unique_id=1394766160 instance=ExtResource("6_at6rn")]
+layout_mode = 0
+offset_right = 846.0
 text = "DOŁĄCZ PRZEZ KOD"
+script = ExtResource("13_raimv")
+popup_scene = ExtResource("14_qy7ti")
 
 [connection signal="pressed" from="Control/createButton" to="Control/createButton" method="_on_pressed"]
+[connection signal="pressed" from="Control2/secondaryButton" to="Control2/secondaryButton" method="_on_pressed"]

@@ -31,8 +31,10 @@ offset_bottom = 1080.0
 
 [node name="background" type="TextureRect" parent="." unique_id=1935292978]
 layout_mode = 0
-offset_right = 1728.0
-offset_bottom = 972.00037
+offset_left = 112.0
+offset_top = 49.0
+offset_right = 1840.0
+offset_bottom = 1021.00037
 pivot_offset = Vector2(48, 27)
 pivot_offset_ratio = Vector2(48, 27)
 texture = ExtResource("1_jpnm2")
@@ -114,11 +116,3 @@ anchors_preset = 0
 offset_right = 915.0
 offset_bottom = 732.0
 script = ExtResource("6_gpwap")
-
-[node name="joinButton2" parent="background" unique_id=247933542 instance=ExtResource("6_0gc2f")]
-layout_mode = 0
-offset_left = 263.0
-offset_top = 765.0
-offset_right = 717.0
-offset_bottom = 933.0
-text = "DOŁĄCZ"
