@@ -1,15 +1,20 @@
-extends Button
+extends Control
 
+@onready var nick_input = $nickInput # Załóżmy, że masz pola tekstowe
+@onready var avatar_id = "warrior_1"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_create_button_pressed():
+	var nick = nick_input.text
+	if nick.is_empty(): return
+	
+	# Wywołujemy Autoload
+	Network.connect_to_game("create", nick, avatar_id)
 
+func _ready():
+	# Nasłuchujemy na sukces połączenia
+	Network.connected_to_lobby.connect(_on_lobby_created)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_pressed() -> void:
-	pass # Replace with function body.
+func _on_lobby_created(data):
+	print("Lobby utworzone! ID: ", data.lobby.id)
+	# Tutaj zmień scenę na poczekalnię lub grę
+	# get_tree().change_scene_to_file("res://scenes/lobby.tscn")
