@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bljah362qdert"
-path="res://.godot/imported/ButtonCreateSessionClicked.svg-bd2c77d85ec250ebb9ae96d247ed9669.ctex"
+uid="uid://bfh6u2fm8j1gi"
+path="res://.godot/imported/primaryHover.svg-c76e86f33c1ffbc0bfd20d8c7b1aa4f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mainMenu/buttons/clicked/ButtonCreateSessionClicked.svg"
-dest_files=["res://.godot/imported/ButtonCreateSessionClicked.svg-bd2c77d85ec250ebb9ae96d247ed9669.ctex"]
+source_file="res://assets/global/buttons/assets/hover/primaryHover.svg"
+dest_files=["res://.godot/imported/primaryHover.svg-c76e86f33c1ffbc0bfd20d8c7b1aa4f8.ctex"]
 
 [params]
 

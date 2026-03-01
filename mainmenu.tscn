@@ -4,12 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bh47lqgurb63u" path="res://assets/mainMenu/sun.png" id="2_igs2m"]
 [ext_resource type="Shader" uid="uid://cgks48qi76hag" path="res://assets/mainMenu/scripts/blurShader.gdshader" id="3_3pujl"]
 [ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/mainMenu/Bungee-Regular.ttf" id="4_0y70q"]
-[ext_resource type="Texture2D" uid="uid://cle8qlkbgv5jl" path="res://assets/mainMenu/buttons/default/ButtonCreateSession.svg" id="5_qrn07"]
-[ext_resource type="Texture2D" uid="uid://bljah362qdert" path="res://assets/mainMenu/buttons/clicked/ButtonCreateSessionClicked.svg" id="6_lidg2"]
-[ext_resource type="Texture2D" uid="uid://c88ihjiaurvtl" path="res://assets/mainMenu/buttons/hover/ButtonCreateSessionHover.svg" id="7_raimv"]
-[ext_resource type="Texture2D" uid="uid://ct6vqh2eempfx" path="res://assets/mainMenu/buttons/default/ButtonJoinSession.svg" id="8_qy7ti"]
-[ext_resource type="Texture2D" uid="uid://t1svy1aajojj" path="res://assets/mainMenu/buttons/clicked/ButtonJoinSessionClicked.svg" id="9_y5i8j"]
-[ext_resource type="Texture2D" uid="uid://ccct5eo8bx6av" path="res://assets/mainMenu/buttons/hover/ButtonJoinSesionHover.svg" id="10_f0ka0"]
+[ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="5_7uvds"]
+[ext_resource type="PackedScene" uid="uid://d0chuo04mwkdm" path="res://assets/global/buttons/secondaryButton.tscn" id="6_at6rn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uvds"]
 atlas = ExtResource("2_igs2m")
@@ -269,22 +265,16 @@ label_settings = SubResource("LabelSettings_lqdfc")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="createServerButton" type="TextureButton" parent="." unique_id=1422071306]
-offset_top = 594.0
-offset_right = 1928.0
-offset_bottom = 780.0
-texture_normal = ExtResource("5_qrn07")
-texture_pressed = ExtResource("6_lidg2")
-texture_hover = ExtResource("7_raimv")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+[node name="createButton" parent="." unique_id=715215365 instance=ExtResource("5_7uvds")]
+offset_left = 530.0
+offset_top = 548.0
+offset_right = 1377.0
+offset_bottom = 734.0
+text = "STWÓRZ SERWER"
 
-[node name="joinServerButton" type="TextureButton" parent="." unique_id=1551052679]
-offset_top = 822.0
-offset_right = 1928.0
-offset_bottom = 1008.0
-texture_normal = ExtResource("8_qy7ti")
-texture_pressed = ExtResource("9_y5i8j")
-texture_hover = ExtResource("10_f0ka0")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+[node name="secondaryButton" parent="." unique_id=1394766160 instance=ExtResource("6_at6rn")]
+offset_left = 530.0
+offset_top = 792.0
+offset_right = 1377.0
+offset_bottom = 978.0
+text = "DOŁĄCZ PRZEZ KOD"

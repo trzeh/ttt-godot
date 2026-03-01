@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t1svy1aajojj"
-path="res://.godot/imported/ButtonJoinSessionClicked.svg-4bb6c294cf987665256e316c62151b6c.ctex"
+uid="uid://y5wb8firknt1"
+path="res://.godot/imported/secondaryPressed.svg-94ce1615bb7007dbcea75f9cf32b0f25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mainMenu/buttons/clicked/ButtonJoinSessionClicked.svg"
-dest_files=["res://.godot/imported/ButtonJoinSessionClicked.svg-4bb6c294cf987665256e316c62151b6c.ctex"]
+source_file="res://assets/global/buttons/assets/clicked/secondaryPressed.svg"
+dest_files=["res://.godot/imported/secondaryPressed.svg-94ce1615bb7007dbcea75f9cf32b0f25.ctex"]
 
 [params]
 

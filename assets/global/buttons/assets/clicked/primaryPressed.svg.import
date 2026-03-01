@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cle8qlkbgv5jl"
-path="res://.godot/imported/ButtonCreateSession.svg-d784433a161d767490e8f8822ad9101c.ctex"
+uid="uid://bw4g8q6qnyiaw"
+path="res://.godot/imported/primaryPressed.svg-79d7384108908f57dcd90e79783dca59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mainMenu/buttons/default/ButtonCreateSession.svg"
-dest_files=["res://.godot/imported/ButtonCreateSession.svg-d784433a161d767490e8f8822ad9101c.ctex"]
+source_file="res://assets/global/buttons/assets/clicked/primaryPressed.svg"
+dest_files=["res://.godot/imported/primaryPressed.svg-79d7384108908f57dcd90e79783dca59.ctex"]
 
 [params]
 

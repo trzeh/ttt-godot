@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccct5eo8bx6av"
-path="res://.godot/imported/ButtonJoinSesionHover.svg-73db90253751a4fd8be6357b2967c588.ctex"
+uid="uid://b2otlvc8eepkp"
+path="res://.godot/imported/primaryDefault.svg-d7f4e101010ffbf85a238176cda308cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mainMenu/buttons/hover/ButtonJoinSesionHover.svg"
-dest_files=["res://.godot/imported/ButtonJoinSesionHover.svg-73db90253751a4fd8be6357b2967c588.ctex"]
+source_file="res://assets/global/buttons/assets/default/primaryDefault.svg"
+dest_files=["res://.godot/imported/primaryDefault.svg-d7f4e101010ffbf85a238176cda308cd.ctex"]
 
 [params]
 
