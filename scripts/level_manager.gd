@@ -6,6 +6,7 @@ const BACKGROUND = preload("res://assets/serverGui/background.svg")
 
 var _event_scripts: Array[Script] = []
 var _last_event_script: Script = null
+var _hp_before_event: int = 100
 
 
 func _ready() -> void:
@@ -75,6 +76,7 @@ func _launch_event_script(event_script: Script) -> void:
 	tween.tween_property(wrapper, "scale", Vector2.ONE, 0.4)
 
 	if event_node.has_signal("event_completed"):
+		_hp_before_event = Global.player_hp
 		await get_tree().process_frame
 		event_node.event_completed.connect(func(result):
 			_on_event_completed(result, wrapper)
@@ -83,6 +85,15 @@ func _launch_event_script(event_script: Script) -> void:
 
 func _on_event_completed(result: Dictionary, wrapper: Control) -> void:
 	print("Event zakończony: ", result)
+	
+	if result.get("accepted") == false:
+		var level_penalty = 3 * current_level
+		Global.player_hp = max(Global.player_hp - level_penalty, 0)
+	
+	var total_damage = _hp_before_event - Global.player_hp
+	PlayerBanner.update_banner()
+	if total_damage > 0:
+		PlayerBanner.show_damage(total_damage)
 	var screen_size = get_viewport().get_visible_rect().size
 	wrapper.pivot_offset = screen_size / 2.0
 
@@ -92,6 +103,9 @@ func _on_event_completed(result: Dictionary, wrapper: Control) -> void:
 	tween.tween_property(wrapper, "scale", Vector2.ZERO, 0.3)
 	tween.tween_callback(func():
 		wrapper.queue_free()
+		if Global.player_hp <= 0:
+			_trigger_game_over()
+			return
 		current_level += 1
 		var scene = get_tree().current_scene
 		if scene.has_method("play_exit"):
@@ -99,3 +113,10 @@ func _on_event_completed(result: Dictionary, wrapper: Control) -> void:
 		else:
 			get_tree().change_scene_to_file("res://scenes/Loading.tscn")
 	)
+
+
+func _trigger_game_over() -> void:
+	var game_over_script = load("res://scripts/game_over.gd")
+	var game_over = CanvasLayer.new()
+	game_over.set_script(game_over_script)
+	get_tree().current_scene.add_child(game_over)

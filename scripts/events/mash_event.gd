@@ -116,8 +116,11 @@ func _on_mash() -> void:
 
 
 func _on_timeout() -> void:
-	Global.player_hp = max(Global.player_hp - hp_penalty, 0)
-	_finish({"accepted": false, "timeout": true, "hp_penalty": hp_penalty})
+	var progress_ratio = float(_click_count) / float(clicks_needed)
+	var scaled_penalty = int(hp_penalty * (1.0 - progress_ratio))
+	scaled_penalty = max(scaled_penalty, 5)
+	Global.player_hp = max(Global.player_hp - scaled_penalty, 0)
+	_finish({"accepted": false, "timeout": true, "hp_penalty": scaled_penalty, "clicks": _click_count})
 
 
 func _finish(result: Dictionary) -> void:

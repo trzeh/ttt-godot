@@ -13,7 +13,7 @@ var _level_label: Label = null
 
 
 func _ready() -> void:
-	pass
+	PlayerBanner.show_banner()
 
 
 func _process(delta: float) -> void:
