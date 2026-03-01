@@ -54,3 +54,21 @@ func _fade_out_label() -> void:
 		_level_label.queue_free()
 		LevelManager.trigger_random_event()
 	)
+
+
+func play_exit() -> void:
+	set_process(false)
+
+	elevator.toggle_doors()
+
+	await get_tree().create_timer(elevator.animation_time + 0.1).timeout
+
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(elevator, "position:y", 1300, 1.2)
+	tween.tween_property(levelFloorSprite, "position:y", -1080, 1.2)
+
+	await tween.finished
+
+	get_tree().change_scene_to_file("res://scenes/Loading.tscn")
