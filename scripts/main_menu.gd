@@ -16,5 +16,5 @@ func _start_exit_animation(actual_popup: Node):
 	
 	tween.chain().tween_callback(func():
 		actual_popup.queue_free()
-		get_tree().change_scene_to_file("res://loading.tscn")
+		get_tree().change_scene_to_file("res://scenes/Loading.tscn")
 	)
