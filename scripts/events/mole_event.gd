@@ -12,12 +12,14 @@ const MOLE_TEX = preload("res://assets/images/Mole.svg")
 
 const HOLE_COUNT = 6
 const COLS = 3
+const MAX_HITS = 10
 
 var _completed: bool = false
+var _hiding: bool = false
 var _active_hole: int = -1
+var _mole_gen: int = 0
 var _holes: Array = []
 var _mole_node: TextureRect = null
-var _mole_timer: SceneTreeTimer = null
 var _time_label: Label = null
 var _score_label: Label = null
 var _time_remaining: float = 0.0
@@ -78,7 +80,7 @@ func _build_ui() -> void:
 		_holes.append(btn)
 
 	_score_label = Label.new()
-	_score_label.text = "Trafień: 0"
+	_score_label.text = "Trafień: 0/%d" % MAX_HITS
 	_score_label.add_theme_font_override("font", BUNGEE)
 	_score_label.add_theme_font_size_override("font_size", 42)
 	_score_label.add_theme_color_override("font_outline_color", Color.BLACK)
@@ -103,13 +105,16 @@ func _build_ui() -> void:
 
 
 func _schedule_mole() -> void:
-	if _completed:
+	if _completed or _hiding:
 		return
+
 	var available = range(HOLE_COUNT).filter(func(i): return i != _active_hole)
 	_active_hole = available[randi() % available.size()]
+	_mole_gen += 1
+	var gen = _mole_gen
+
 	_show_mole(_active_hole)
-	_mole_timer = get_tree().create_timer(mole_timeout)
-	_mole_timer.timeout.connect(_on_mole_timeout)
+	get_tree().create_timer(mole_timeout).timeout.connect(func(): _on_mole_timeout(gen))
 
 
 func _show_mole(hole_idx: int) -> void:
@@ -132,16 +137,20 @@ func _show_mole(hole_idx: int) -> void:
 
 
 func _on_hole_clicked(idx: int) -> void:
-	if _completed or idx != _active_hole:
+	if _completed or idx != _active_hole or _hiding:
 		return
+	_mole_gen += 1
 	_score += 1
 	if _score_label:
-		_score_label.text = "Trafień: %d" % _score
+		_score_label.text = "Trafień: %d/%d" % [_score, MAX_HITS]
+	if _score >= MAX_HITS:
+		_finish({"accepted": true, "score": _score, "hp_lost": _hp_lost})
+		return
 	_hide_mole_and_next()
 
 
-func _on_mole_timeout() -> void:
-	if _completed:
+func _on_mole_timeout(gen: int) -> void:
+	if _completed or gen != _mole_gen:
 		return
 	_hp_lost += hp_penalty_per_miss
 	Global.player_hp = max(Global.player_hp - hp_penalty_per_miss, 0)
@@ -149,21 +158,24 @@ func _on_mole_timeout() -> void:
 
 
 func _hide_mole_and_next() -> void:
-	if _mole_timer != null:
-		_mole_timer = null
+	if _hiding:
+		return
+	_hiding = true
+	_active_hole = -1
 
 	var node_to_free = _mole_node
 	_mole_node = null
-	_active_hole = -1
 
-	if node_to_free:
+	if node_to_free and is_instance_valid(node_to_free):
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.set_ease(Tween.EASE_IN)
 		tween.tween_property(node_to_free, "scale", Vector2.ZERO, 0.15)
 		tween.tween_callback(node_to_free.queue_free)
 
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.3).timeout
+	_hiding = false
+
 	if not _completed:
 		_schedule_mole()
 
@@ -176,7 +188,7 @@ func _finish(result: Dictionary) -> void:
 	if _completed:
 		return
 	_completed = true
-	if _mole_node:
+	if _mole_node and is_instance_valid(_mole_node):
 		_mole_node.queue_free()
 		_mole_node = null
 	event_completed.emit(result)
