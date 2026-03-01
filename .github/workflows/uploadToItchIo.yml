@@ -46,7 +46,7 @@ jobs:
           path: builds
 
       - name: Setup Butler
-        uses: jdno/setup-butler@v2
+        uses: remarkablegames/setup-butler@v2
 
       - name: Push to Itch.io
         env:
