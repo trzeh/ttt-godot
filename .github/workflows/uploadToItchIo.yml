@@ -46,9 +46,9 @@ jobs:
           path: builds
 
       - name: Setup Butler
-        uses: jdno/setup-butler@v2
+        uses: remarkablegames/setup-butler@v2
 
       - name: Push to Itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: butler push builds/web ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME_ID }}:html
+        run: butler push builds/web ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME_ID }}:html --userversion 0.0.1-${GITHUB_SHA::7}
