@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dupngulsot4ci"]
+
+[ext_resource type="Texture2D" uid="uid://btopdndf1d7nt" path="res://assets/serverGui/background.svg" id="1_2e4c0"]
+[ext_resource type="PackedScene" uid="uid://coutnr2s7qv2t" path="res://assets/text.tscn" id="2_xvqgl"]
+[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/global/Bungee-Regular.ttf" id="3_5cjos"]
+[ext_resource type="Texture2D" uid="uid://7lh4yi6pacl2" path="res://assets/global/textInput.svg" id="4_rsfuh"]
+[ext_resource type="Texture2D" uid="uid://dusabdtubyhic" path="res://assets/serverGui/paintArea.svg" id="5_7v7vn"]
+[ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://canvas.gd" id="6_qg88k"]
+[ext_resource type="PackedScene" uid="uid://d0chuo04mwkdm" path="res://assets/global/buttons/secondaryButton.tscn" id="7_jqeh8"]
+[ext_resource type="Script" uid="uid://cajgemqiur8rc" path="res://assets/global/buttons/createServerButton.gd" id="8_tseto"]
+[ext_resource type="Texture2D" uid="uid://d0p1fxn0je1jx" path="res://backButton.svg" id="9_0j03v"]
+[ext_resource type="Script" uid="uid://shyodb3xkkcp" path="res://texture_button.gd" id="10_uvgkf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co7v4"]
+texture = ExtResource("4_rsfuh")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hiycm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pvj6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_heag5"]
+load_path = "res://.godot/imported/backButton.svg-8dafd0e58f171258929d6b2aadf75932.ctex"
+
+[node name="demo" type="Control" unique_id=970881596]
+layout_mode = 3
+anchor_left = -0.021000002
+anchor_right = -0.021000002
+offset_left = 40.320004
+offset_right = 1960.32
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="." unique_id=2111127716]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.05
+anchor_bottom = 0.05
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 1744.0
+offset_bottom = 967.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(892, 502)
+texture = ExtResource("1_2e4c0")
+
+[node name="nickLabel" parent="background" unique_id=1724868936 instance=ExtResource("2_xvqgl")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 82.0
+offset_right = 618.0
+offset_bottom = 178.0
+text = "TWÓJ NICK"
+
+[node name="nickInput" type="LineEdit" parent="background" unique_id=1047842018]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 186.0
+offset_right = 725.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5cjos")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxTexture_co7v4")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_hiycm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2pvj6")
+alignment = 1
+max_length = 12
+
+[node name="avatarLabel" parent="background" unique_id=857294982 instance=ExtResource("2_xvqgl")]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 74.0
+offset_right = 1663.0
+offset_bottom = 210.0
+text = "NARYSUJ SWÓJ AWATAR"
+
+[node name="avatarArea" type="TextureRect" parent="background" unique_id=1251693058]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 186.0
+offset_right = 1671.0
+offset_bottom = 933.0
+texture = ExtResource("5_7v7vn")
+
+[node name="canvas" type="Control" parent="background/avatarArea" unique_id=826424003]
+anchors_preset = 0
+offset_right = 915.0
+offset_bottom = 732.0
+script = ExtResource("6_qg88k")
+
+[node name="nextButton" parent="background" unique_id=1394766160 instance=ExtResource("7_jqeh8")]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 711.0
+offset_right = 621.0
+offset_bottom = 879.0
+text = "DALEJ"
+script = ExtResource("8_tseto")
+
+[node name="TextureButton" type="TextureButton" parent="background" unique_id=11797601]
+layout_mode = 0
+offset_left = -68.0
+offset_top = -50.0
+offset_right = 118.0
+offset_bottom = 136.0
+texture_normal = SubResource("CompressedTexture2D_heag5")
+texture_pressed = ExtResource("9_0j03v")
+texture_hover = ExtResource("9_0j03v")
+script = ExtResource("10_uvgkf")
+
+[connection signal="pressed" from="background/nextButton" to="background/nextButton" method="_on_pressed"]
+[connection signal="pressed" from="background/TextureButton" to="background/TextureButton" method="_on_pressed"]

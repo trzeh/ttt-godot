@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="9_0y70q"]
 [ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="10_qrn07"]
 [ext_resource type="Script" uid="uid://bgoxj5nngmdiq" path="res://assets/global/buttons/secondary_button.gd" id="13_raimv"]
+[ext_resource type="PackedScene" uid="uid://dupngulsot4ci" path="res://demoMenu.tscn" id="14_qy7ti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uvds"]
 atlas = ExtResource("2_igs2m")
@@ -327,9 +328,21 @@ offset_bottom = 832.0
 
 [node name="secondaryButton" parent="Control2" unique_id=1394766160 instance=ExtResource("6_at6rn")]
 layout_mode = 0
-offset_right = 846.0
+offset_left = -484.0
+offset_top = -8.0
+offset_right = 362.0
+offset_bottom = 178.0
 text = "DOŁĄCZ PRZEZ KOD"
 script = ExtResource("13_raimv")
 
+[node name="secondaryButton" parent="Control2/secondaryButton" unique_id=324494626 instance=ExtResource("6_at6rn")]
+layout_mode = 0
+offset_left = 1012.0
+offset_right = 1858.0
+text = "DEMO"
+script = ExtResource("13_raimv")
+popup_scene = ExtResource("14_qy7ti")
+
 [connection signal="pressed" from="Control/createButton" to="Control/createButton" method="_on_pressed"]
 [connection signal="pressed" from="Control2/secondaryButton" to="Control2/secondaryButton" method="_on_pressed"]
+[connection signal="pressed" from="Control2/secondaryButton/secondaryButton" to="Control2/secondaryButton/secondaryButton" method="_on_pressed"]
