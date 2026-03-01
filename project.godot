@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://mxv7r762lrp0"
 Network="*uid://vk3nubs4dp3n"
+LevelManager="*uid://bo606hddxwd08"
 
 [display]
 

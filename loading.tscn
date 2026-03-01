@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bbhbgepn5hoiv"]
+
+[ext_resource type="Script" uid="uid://be0oq7ho5u4ll" path="res://assets/loadingScene/scripts/onReady.gd" id="1_m23s6"]
+[ext_resource type="Texture2D" uid="uid://dx5o71ke7g3k4" path="res://assets/loadingScene/LoadingScreen.svg" id="1_xvgud"]
+[ext_resource type="Texture2D" uid="uid://dbyq2vbqvvg45" path="res://assets/global/level/Level.svg" id="2_m23s6"]
+[ext_resource type="Texture2D" uid="uid://cp10ay4oy1vxw" path="res://assets/global/elevator/Elevator.svg" id="2_ypwvy"]
+[ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://elevatorDoors.gd" id="3_m23s6"]
+[ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="4_25ta2"]
+[ext_resource type="Script" uid="uid://ohe3crgl6kwx" path="res://on_button_pressed.gd" id="5_vxij0"]
+[ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="6_odase"]
+
+[node name="Control" type="Control" unique_id=1413450945]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m23s6")
+
+[node name="mainSprite" type="TextureRect" parent="." unique_id=812917116]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_xvgud")
+
+[node name="levelFloorSprite" type="TextureRect" parent="." unique_id=59699677]
+layout_mode = 0
+offset_top = 1078.0
+offset_right = 1920.0
+offset_bottom = 2158.0
+texture = ExtResource("2_m23s6")
+
+[node name="elevator" type="TextureRect" parent="." unique_id=1518903163]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -640.0
+offset_right = 505.0
+offset_bottom = 13.0
+texture = ExtResource("2_ypwvy")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("3_m23s6")
+
+[node name="doorsLeft" type="TextureRect" parent="elevator" unique_id=465616759]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 67.0
+offset_right = 454.0
+offset_bottom = 639.0
+texture = ExtResource("4_25ta2")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("5_vxij0")
+
+[node name="doorsRight" type="TextureRect" parent="elevator" unique_id=550161048]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 85.0
+offset_right = 475.0
+offset_bottom = 619.0
+texture = ExtResource("6_odase")
+expand_mode = 1
+stretch_mode = 4

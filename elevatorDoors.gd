@@ -1,6 +1,5 @@
 extends TextureRect 
 
-	
 @export var slide_left: Vector2 = Vector2(-25, 25)
 @export var slide_right: Vector2 = Vector2(20, -20)
 
@@ -25,6 +24,7 @@ func _ready():
 	left_closed_size = doors_left.size
 	right_closed_size = doors_right.size
 
+# Zwykły toggle - włącza/wyłącza drzwi
 func toggle_doors():
 	is_open = !is_open 
 	var tween = create_tween()
@@ -56,6 +56,12 @@ func toggle_doors():
 		tween.tween_property(doors_right, "size", right_closed_size, animation_time)
 		tween.tween_property(doors_right, "modulate:a", 1.0, animation_time)
 
+# NOWA funkcja - gwarantuje, że drzwi TYLKO się otworzą (wykorzystywana przez główny skrypt)
+func open_doors():
+	if not is_open:
+		toggle_doors()
+
+# Wciskanie klawisza - zostaje po staremu, używa toggle
 func _input(event):
 	if event.is_action_pressed("ui_accept"): 
 		toggle_doors()
