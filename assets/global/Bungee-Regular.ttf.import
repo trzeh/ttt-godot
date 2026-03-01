@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dya6ntgciybnk"
-path="res://.godot/imported/Bungee-Regular.ttf-9b75bff96685280785051cf198689787.fontdata"
+path="res://.godot/imported/Bungee-Regular.ttf-62ad8f1f820f48ad3b33e85f54f41cdb.fontdata"
 
 [deps]
 
-source_file="res://assets/mainMenu/Bungee-Regular.ttf"
-dest_files=["res://.godot/imported/Bungee-Regular.ttf-9b75bff96685280785051cf198689787.fontdata"]
+source_file="res://assets/global/Bungee-Regular.ttf"
+dest_files=["res://.godot/imported/Bungee-Regular.ttf-62ad8f1f820f48ad3b33e85f54f41cdb.fontdata"]
 
 [params]
 

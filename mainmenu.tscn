@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://b3h7gvyrr0hxv"]
 
-[ext_resource type="Texture2D" uid="uid://rmmiu1dh515h" path="res://assets/mainMenu/mainMenu.svg" id="1_wgsso"]
+[ext_resource type="Texture2D" uid="uid://d2qtbekboepl" path="res://assets/mainMenu/mainMenu.svg" id="1_wgsso"]
 [ext_resource type="Texture2D" uid="uid://bh47lqgurb63u" path="res://assets/mainMenu/sun.png" id="2_igs2m"]
 [ext_resource type="Shader" uid="uid://cgks48qi76hag" path="res://assets/mainMenu/scripts/blurShader.gdshader" id="3_3pujl"]
-[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/mainMenu/Bungee-Regular.ttf" id="4_0y70q"]
+[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/global/Bungee-Regular.ttf" id="4_0y70q"]
 [ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="5_7uvds"]
 [ext_resource type="PackedScene" uid="uid://d0chuo04mwkdm" path="res://assets/global/buttons/secondaryButton.tscn" id="6_at6rn"]
+[ext_resource type="Script" uid="uid://ohe3crgl6kwx" path="res://on_button_pressed.gd" id="6_qrn07"]
+[ext_resource type="PackedScene" uid="uid://cadjf4i0lylk" path="res://joinMenu.tscn" id="7_lidg2"]
+[ext_resource type="Texture2D" uid="uid://cp10ay4oy1vxw" path="res://assets/global/elevator/Elevator.svg" id="7_rqglp"]
+[ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://elevatorDoors.gd" id="8_0y70q"]
+[ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="9_0y70q"]
+[ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="10_qrn07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uvds"]
 atlas = ExtResource("2_igs2m")
@@ -240,6 +246,7 @@ autoplay = "default"
 frame_progress = 0.17515254
 
 [node name="blur" type="ColorRect" parent="." unique_id=754370497]
+visible = false
 material = SubResource("ShaderMaterial_u77v1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -265,16 +272,56 @@ label_settings = SubResource("LabelSettings_lqdfc")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="createButton" parent="." unique_id=715215365 instance=ExtResource("5_7uvds")]
+[node name="Control" type="Control" parent="." unique_id=2120837373]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 530.0
 offset_top = 548.0
-offset_right = 1377.0
-offset_bottom = 734.0
+offset_right = 570.0
+offset_bottom = 588.0
+
+[node name="createButton" parent="Control" unique_id=715215365 instance=ExtResource("5_7uvds")]
+layout_mode = 0
 text = "STWÓRZ SERWER"
+script = ExtResource("6_qrn07")
+next_scene = ExtResource("7_lidg2")
 
 [node name="secondaryButton" parent="." unique_id=1394766160 instance=ExtResource("6_at6rn")]
-offset_left = 530.0
+offset_left = 531.0
 offset_top = 792.0
 offset_right = 1377.0
 offset_bottom = 978.0
 text = "DOŁĄCZ PRZEZ KOD"
+
+[node name="elevator" type="TextureRect" parent="." unique_id=1853058788]
+offset_left = 38.0
+offset_top = 384.0
+offset_right = 511.0
+offset_bottom = 1037.0
+texture = ExtResource("7_rqglp")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("8_0y70q")
+
+[node name="doorsLeft" type="TextureRect" parent="elevator" unique_id=1298521898]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 67.0
+offset_right = 454.0
+offset_bottom = 639.0
+texture = ExtResource("9_0y70q")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("6_qrn07")
+
+[node name="doorsRight" type="TextureRect" parent="elevator" unique_id=521734285]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 85.0
+offset_right = 475.0
+offset_bottom = 619.0
+texture = ExtResource("10_qrn07")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="Control/createButton" to="Control/createButton" method="_on_pressed"]

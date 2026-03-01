@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cadjf4i0lylk"]
+
+[ext_resource type="Texture2D" uid="uid://btopdndf1d7nt" path="res://assets/serverGui/background.svg" id="1_jpnm2"]
+[ext_resource type="PackedScene" uid="uid://coutnr2s7qv2t" path="res://assets/text.tscn" id="2_gpwap"]
+[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/global/Bungee-Regular.ttf" id="3_f1pfl"]
+[ext_resource type="Texture2D" uid="uid://7lh4yi6pacl2" path="res://assets/global/textInput.svg" id="4_v7bpt"]
+[ext_resource type="Texture2D" uid="uid://dusabdtubyhic" path="res://assets/serverGui/paintArea.svg" id="5_dpgdt"]
+[ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="6_0gc2f"]
+[ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://canvas.gd" id="6_gpwap"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myajv"]
+texture = ExtResource("4_v7bpt")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1pfl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7bpt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpnm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpwap"]
+
+[node name="Control" type="Control" unique_id=896647217]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="background" type="TextureRect" parent="." unique_id=1935292978]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -864.0
+offset_top = -486.0
+offset_right = 864.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jpnm2")
+metadata/_edit_use_anchors_ = true
+
+[node name="nickLabel" parent="." unique_id=1724868936 instance=ExtResource("2_gpwap")]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 136.0
+offset_right = 714.0
+offset_bottom = 232.0
+text = "TWÓJ NICK"
+
+[node name="nickInput" type="LineEdit" parent="." unique_id=858104931]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 240.0
+offset_right = 821.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_f1pfl")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxTexture_myajv")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_f1pfl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v7bpt")
+alignment = 1
+max_length = 12
+
+[node name="avatarLabel" parent="." unique_id=290024028 instance=ExtResource("2_gpwap")]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 128.0
+offset_right = 1759.0
+offset_bottom = 264.0
+text = "NARYSUJ SWÓJ AWATAR"
+
+[node name="codeLabel" parent="." unique_id=404486753 instance=ExtResource("2_gpwap")]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 478.0
+offset_right = 784.0
+offset_bottom = 574.0
+text = "KOD DO LOBBY"
+
+[node name="codeInput" type="LineEdit" parent="." unique_id=1031118822]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 582.0
+offset_right = 821.0
+offset_bottom = 733.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_f1pfl")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxTexture_myajv")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_jpnm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gpwap")
+alignment = 1
+max_length = 6
+
+[node name="joinButton" parent="." unique_id=715215365 instance=ExtResource("6_0gc2f")]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 765.0
+offset_right = 717.0
+offset_bottom = 933.0
+text = "DOŁĄCZ"
+
+[node name="avatarArea" type="TextureRect" parent="." unique_id=318685123]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 240.0
+offset_right = 1767.0
+offset_bottom = 987.0
+texture = ExtResource("5_dpgdt")
+
+[node name="canvas" type="Control" parent="avatarArea" unique_id=1037033401]
+anchors_preset = 0
+offset_right = 915.0
+offset_bottom = 732.0
+script = ExtResource("6_gpwap")

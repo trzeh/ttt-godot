@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://coutnr2s7qv2t"]
+
+[ext_resource type="FontFile" uid="uid://dya6ntgciybnk" path="res://assets/global/Bungee-Regular.ttf" id="1_aohfb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g853r"]
+font = ExtResource("1_aohfb")
+font_size = 72
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" unique_id=1724868936]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_g853r")
