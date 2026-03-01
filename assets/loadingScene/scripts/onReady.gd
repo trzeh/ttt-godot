@@ -8,7 +8,8 @@ var speed = 420.0
 var doors_opened = false
 
 func _ready() -> void:
-	print("Skrypt podpięty pod Control i działa!")
+	pass
+
 
 func _process(delta: float) -> void:
 	if elevator.position.y != 178.0:
@@ -24,4 +25,3 @@ func _process(delta: float) -> void:
 	if mainSprite.position.y <= -1920 and not doors_opened:
 		elevator.open_doors()
 		doors_opened = true
-		

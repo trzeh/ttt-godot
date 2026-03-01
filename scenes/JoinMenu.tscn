@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://7lh4yi6pacl2" path="res://assets/global/textInput.svg" id="4_v7bpt"]
 [ext_resource type="Texture2D" uid="uid://dusabdtubyhic" path="res://assets/serverGui/paintArea.svg" id="5_dpgdt"]
 [ext_resource type="PackedScene" uid="uid://y3wlqe05jhqb" path="res://assets/global/buttons/primaryButton.tscn" id="6_0gc2f"]
-[ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://canvas.gd" id="6_gpwap"]
+[ext_resource type="Script" uid="uid://mx62sm1aqtop" path="res://scripts/canvas.gd" id="6_gpwap"]
 [ext_resource type="Texture2D" uid="uid://d0p1fxn0je1jx" path="res://backButton.svg" id="8_f1pfl"]
-[ext_resource type="Script" uid="uid://shyodb3xkkcp" path="res://texture_button.gd" id="9_v7bpt"]
+[ext_resource type="Script" uid="uid://shyodb3xkkcp" path="res://scripts/profile_form.gd" id="9_v7bpt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myajv"]
 texture = ExtResource("4_v7bpt")

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dx5o71ke7g3k4" path="res://assets/loadingScene/LoadingScreen.svg" id="1_xvgud"]
 [ext_resource type="Texture2D" uid="uid://dbyq2vbqvvg45" path="res://assets/global/level/Level.svg" id="2_m23s6"]
 [ext_resource type="Texture2D" uid="uid://cp10ay4oy1vxw" path="res://assets/global/elevator/Elevator.svg" id="2_ypwvy"]
-[ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://elevatorDoors.gd" id="3_m23s6"]
+[ext_resource type="Script" uid="uid://cdscp70fwmf64" path="res://scripts/elevator_doors.gd" id="3_m23s6"]
 [ext_resource type="Texture2D" uid="uid://b0akeqliqcuhp" path="res://assets/global/elevator/doorsLeft.svg" id="4_25ta2"]
-[ext_resource type="Script" uid="uid://ohe3crgl6kwx" path="res://on_button_pressed.gd" id="5_vxij0"]
+[ext_resource type="Script" uid="uid://ohe3crgl6kwx" path="res://scripts/popup_opener.gd" id="5_vxij0"]
 [ext_resource type="Texture2D" uid="uid://bi2ht6tpa2mky" path="res://assets/global/elevator/doorsRight.svg" id="6_odase"]
 
 [node name="Control" type="Control" unique_id=1413450945]
