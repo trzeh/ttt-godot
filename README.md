@@ -22,8 +22,4 @@ All participants of Campfire Lublin for participating in the gamejam and spendin
 All participants of any Campfire for making the games, spending time with each other and having a good time!  
 
 
-### Stats:
-
-
-
 [^1]: Do not confuse with that one Garry's Mod game.
