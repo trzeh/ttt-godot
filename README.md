@@ -21,5 +21,7 @@ https://trzeh.itch.io/ttt
 All participants of Campfire Lublin for participating in the gamejam and spending time with us - It was a lovely experience to be there <3  
 All participants of any Campfire for making the games, spending time with each other and having a good time!  
 
+### AI Declaration:  
+AI coding was used for the demo branch, to meet the deadline. We'll use much less AI for our updates.
 
 [^1]: Do not confuse with that one Garry's Mod game.
